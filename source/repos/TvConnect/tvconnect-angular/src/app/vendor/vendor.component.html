@@ -1,0 +1,25 @@
+<div class="container">
+    <h3 class="center header">D2h Vendors</h3>
+    <section>
+        <div class="row">
+            <div *ngFor="let vendor of Vendors" class="col s12 m4">
+              <div class="card">
+               
+                <div class="card-image">
+                  <img src="{{vendor.image_url}}" width="250px" height="250px;">
+                 
+                </div>
+                <div class="card-content center">
+                    <span class="card-title">{{vendor.vendor_Name}}</span>
+                  <p  class="card-title"> {{vendor.email}}</p>
+                  <p  class="card-title">Address: {{vendor.vendor_Address}}</p>
+                  <p  class="card-title">Phone: {{vendor.vendor_contact}}</p>
+                </div>
+                <div class="card-action">
+                  <a (click)="ShowPlans(vendor)">View Plans</a>
+                </div>
+              </div>
+            </div>
+          </div>
+    </section>
+</div>

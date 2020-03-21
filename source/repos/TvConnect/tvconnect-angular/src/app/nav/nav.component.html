@@ -1,0 +1,27 @@
+<nav>
+  <div class="nav-wrapper black">
+    <a href="#!" class="brand-logo"><i class="material-icons">settings_input_antenna</i><span
+        class="logos">vConnect</span>
+    </a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul class="right white-text hide-on-med-and-down ">
+      <li><a href="home">Home</a></li>
+      <li><a *ngIf="!isAuthenticated()" routerLink="signup">Signup</a></li>
+      <li><a *ngIf="!isAuthenticated()" routerLink="signin">Login</a></li>
+      <li><a routerLink="plans">Plans</a></li>
+      <li><a routerLink="vendors">Vendors</a></li>
+      <li><a routerLink="recharge">Recharge Now!</a></li>
+      <li *ngIf="isAuthenticated()"><a routerLink="/user">Profile</a></li>
+      <li *ngIf="isAuthenticated()"><a (click)="logout()">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+  <li><a href="home">Home</a></li>
+  <li><a routerLink="signup">Signup</a></li>
+  <li><a routerLink="signin">Login</a></li>
+  <li><a routerLink="plans">Plans</a></li>
+  <li><a routerLink="vendors">Vendors</a></li>
+  <li><a routerLink="recharge">Recharge Now!</a></li>
+</ul>

@@ -1,0 +1,41 @@
+<div class="container">
+  <section>
+    <div class="center row">
+      <div class="col s12 m3"></div>
+      <div class="col s12 m6">
+        <div class="card">
+          <div class="card-content white-text">
+            <div class="imgcontainer">
+              <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar">
+            </div>
+            <div *ngIf="msg!=null" class="alert alert-warning"
+              style="padding: 15px; border-radius: 0px;text-align: center" role="alert">
+              {{msg}}
+            </div>
+            
+            <div class="container">
+              <form [formGroup]="loginForm" (ngSubmit)="submit()" class="validate-form" autocomplete="off">
+              <label for="uname"><b>Username</b></label>
+              <input formControlName="username" type="text" placeholder="Enter Username" name="uname" required>
+
+              <label for="psw"><b>Password</b></label>
+              <input formControlName="password" type="password" placeholder="Enter Password" name="psw" required>
+              <span class="msg" *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">
+                Password required</span>
+
+              <button [disabled]="loginForm.invalid" class="login100-form-btn">
+                <i *ngIf="spinner" class="fa fa-spinner fa-spin"></i>Login
+              </button>
+              <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+              </label>
+            </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+</div>

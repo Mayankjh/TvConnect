@@ -1,0 +1,88 @@
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="col s12 m3"></div>
+            <div class="col s12 m6">
+                <div class="card">
+
+                    <div class="card-content">
+                        <span class="center bold-text header card-title">D2h Recharges</span> <br><br>
+                        <p class="center">
+                            <label>
+                                <input type="checkbox" class="filled-in" checked="checked" />
+                                <span>Delhi</span>
+                            </label> &nbsp;
+                            <label>
+                                <input type="checkbox" class="filled-in" />
+                                <span>Non-Delhi</span>
+                            </label>
+                        </p><br>
+                        
+                        <div class="input-field col s12">
+                            <label>Select Operator</label><br><br>    
+                            <select class="browser-default" [(ngModel)]="selectedvendor" (change)="getSelectedvendor()">
+                                <ng-container *ngFor="let vendor of Vendors;" >
+                                    <option (change)="populate(vendor)"  [ngValue]="vendor.plans" >
+                                      {{vendor.vendor_Name}}
+                                  </option>
+                                </ng-container>
+                            </select>
+                        </div>
+                        <div *ngIf="plans;">
+                        <div  class="input-field col s12">
+                            <label>Select plan</label><br><br>
+                            <select class="browser-default"  [(ngModel)]="selectedplan" (change)="getSelectedplan()" required>
+                                <!-- <ng-container *ngFor="let vendor of Vendors;" > -->
+                                    <ng-container *ngFor="let plan of plans;" >
+                                        <option [ngValue]="plan">
+                                            {{plan.pack_Name}}
+                                        </option>
+                                    </ng-container>
+                                <!-- </ng-container> -->
+                            </select>
+                        </div>
+                        <div *ngIf="plans;" class="row">
+                            <label for="email">Pack Price</label><br><br>
+                            <div class="input-field col s12">
+                                <input id="email" type="number" value="{{packprice || 0}}" class="validate" readonly>
+                                
+                            </div>
+                        </div>
+                    </div>
+                        <div class="row">
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="userid" type="text" value={{userid}} class="validate" readonly>
+                                        <label for="userid">Customer ID</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="months" type="text" class="validate"  [(ngModel)]="months" name="tello"(change)="GetTotal()"required>
+                                        <label for="months">Duration in Months</label>
+                                    </div>
+                                </div>
+                                
+                                <div *ngIf="months" class="row">
+                                    <label for="email">Total Amount</label><br><br>
+                                    <div class="input-field col s12">
+                                        <input id="amount" type="number" class="validate" value="{{Amount}}" readonly>
+                                       
+                                    </div>
+                                </div>
+                                <div class="center">
+                                    <button class="waves-effect waves-light btn modal-trigger" type="submit"  (click)="postRecharge()"  >Recharge Now!</button>
+                                </div>
+                            </form>
+                            
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

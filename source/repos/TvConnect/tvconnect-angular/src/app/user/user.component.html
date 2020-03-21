@@ -1,0 +1,46 @@
+<div class="container center">
+    <section>
+        <nav>
+            <div class="nav-wrapper">
+                <div class="col s12 center">
+                    <h3>Welcome! {{profile.Firstname}}</h3>
+                </div>
+            </div>
+        </nav>
+
+        <br>
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card-panel  black-text">
+                    <div class="row">
+                        <div class="col s12 m6">
+                            <h4>Perdonal Details</h4>
+                            <div class="card-panel teal white-text">
+                                
+                                <h5>First Name : {{profile.Firstname}}</h5>
+                                <h5>Last Name : {{profile.Lastname}}</h5>
+                                <h5>Pack Name: {{Userplan.pack_Name}}</h5>
+                                <h5>Plan Price: {{Userplan.pack_Price}}</h5>
+                            </div>
+                        </div>
+                        <div class="col s12 m6">
+                            
+                            <div class="card-panel teal white-text">
+                                <img src="{{vendor.image_url}}" height="120px" width="150" alt="">
+                                <h5> Vendor Name: {{vendor.vendor_Name}}</h5>
+                                <h5>Address :{{vendor.vendor_Address}}</h5>
+                                <h5>Contact :{{vendor.vendor_contact}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+</section>
+</div>
